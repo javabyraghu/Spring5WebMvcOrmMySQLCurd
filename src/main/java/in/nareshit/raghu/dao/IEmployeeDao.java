@@ -1,0 +1,8 @@
+package in.nareshit.raghu.dao;
+
+import in.nareshit.raghu.model.Employee;
+
+public interface IEmployeeDao {
+
+   Integer saveEmployee(Employee emp);
+}
