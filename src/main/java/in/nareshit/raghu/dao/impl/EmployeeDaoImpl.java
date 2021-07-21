@@ -23,4 +23,10 @@ public class EmployeeDaoImpl implements IEmployeeDao {
 		List<Employee> list = ht.loadAll(Employee.class);
 		return list;
 	}
+	
+	public void deleteEmployee(Integer id) {
+		Employee emp = new Employee();
+		emp.setEmpId(id);
+		ht.delete(emp);
+	}
 }

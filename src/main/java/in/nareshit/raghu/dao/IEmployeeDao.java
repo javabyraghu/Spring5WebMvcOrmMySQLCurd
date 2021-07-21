@@ -8,4 +8,5 @@ public interface IEmployeeDao {
 
    Integer saveEmployee(Employee emp);
    List<Employee> getAllEmployees();
+   void deleteEmployee(Integer id);
 }

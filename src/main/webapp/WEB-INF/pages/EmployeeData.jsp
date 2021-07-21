@@ -24,7 +24,9 @@
 			<td>${ob.empDept}</td>
 			<td>${ob.empHra}</td>
 			<td>${ob.empTa}</td>
-			<td> DELETE | EDIT </td>
+			<td> 
+				<a href="delete?id=${ob.empId}">DELETE</a>  
+			</td>
 		</tr>
 	</c:forEach>
 </table>

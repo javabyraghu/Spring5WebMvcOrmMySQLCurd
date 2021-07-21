@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import in.nareshit.raghu.model.Employee;
 import in.nareshit.raghu.service.IEmployeeService;
@@ -59,6 +60,21 @@ public class EmployeeController {
 	
 	
 	//4. delete record
+	@GetMapping("/delete")
+	public String deleteEmp( //read input
+			@RequestParam("id") Integer id,
+			Model model
+			) 
+	{
+		//call service
+		service.deleteEmployee(id);
+		//create message
+		String message = "Employee '"+id+"' Deleted!";
+		//send message to UI
+		model.addAttribute("message", message);
+		//goto UI Page
+		return "EmployeeMessage";
+	}
 	
 	
 	//5. show data in edit page
