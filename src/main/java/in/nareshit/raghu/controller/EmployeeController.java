@@ -1,5 +1,7 @@
 package in.nareshit.raghu.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -45,6 +47,15 @@ public class EmployeeController {
 	
 	
 	//3. display all Records
+	@GetMapping("/all")
+	public String displayAll(Model model) {
+		//fetching data from SL
+		List<Employee> emps =  service.getAllEmployees();
+		//send data to UI
+		model.addAttribute("list", emps);
+		//Goto UI Page
+		return "EmployeeData";
+	}
 	
 	
 	//4. delete record

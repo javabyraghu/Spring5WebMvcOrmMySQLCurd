@@ -1,8 +1,12 @@
 package in.nareshit.raghu.service;
 
+import java.util.List;
+
 import in.nareshit.raghu.model.Employee;
 
 public interface IEmployeeService {
 
 	Integer saveEmployee(Employee emp);
+	List<Employee> getAllEmployees();
+
 }
