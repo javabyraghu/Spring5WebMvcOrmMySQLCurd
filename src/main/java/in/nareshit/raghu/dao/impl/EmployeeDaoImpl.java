@@ -29,4 +29,12 @@ public class EmployeeDaoImpl implements IEmployeeDao {
 		emp.setEmpId(id);
 		ht.delete(emp);
 	}
+	
+	public Employee getOneEmployee(Integer id) {
+		return ht.get(Employee.class, id);
+	}
+	
+	public void updateEmployee(Employee emp) {
+		ht.update(emp);
+	}
 }

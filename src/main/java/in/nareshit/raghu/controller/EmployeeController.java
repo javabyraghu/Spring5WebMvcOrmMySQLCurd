@@ -20,14 +20,14 @@ public class EmployeeController {
 
 	@Autowired
 	private IEmployeeService service;
-	
+
 	//1. show register page
 	@GetMapping("/register")
 	public String showRegister() {
 		return "EmployeeRegister";
 	}
-	
-	
+
+
 	//2. On submit read Form data and save
 	//Link URL : save + POST
 	@PostMapping("/save")
@@ -45,8 +45,8 @@ public class EmployeeController {
 		//goto UI page
 		return "EmployeeRegister";
 	}
-	
-	
+
+
 	//3. display all Records
 	@GetMapping("/all")
 	public String displayAll(Model model) {
@@ -57,8 +57,8 @@ public class EmployeeController {
 		//Goto UI Page
 		return "EmployeeData";
 	}
-	
-	
+
+
 	//4. delete record
 	@GetMapping("/delete")
 	public String deleteEmp( //read input
@@ -75,10 +75,40 @@ public class EmployeeController {
 		//goto UI Page
 		return "EmployeeMessage";
 	}
-	
-	
+
+
 	//5. show data in edit page
-	
-	
+	@GetMapping("/edit")
+	public String showEdit(
+			@RequestParam("id") Integer id,
+			Model model
+			) 
+	{
+		//call service with id input returns employee object
+		Employee employee = service.getOneEmployee(id);
+
+		//send object to UI(FORM FILLING)
+		model.addAttribute("employee", employee);
+
+		//goto UI PAGE
+		return "EmployeeEdit";
+	}
+
+
 	//6. do Update on submit
+	@PostMapping("/update")	
+	public String doUpdate(
+			@ModelAttribute("employee") Employee emp, //Read Form Data
+			Model model //send data to UI
+			) 
+	{
+		service.updateEmployee(emp);
+		String message = "Employee '"+emp.getEmpId()+"' Updated!";
+		//send message to UI
+		model.addAttribute("message", message);
+		//goto UI Page
+		return "EmployeeMessage";
+	}
+
+
 }

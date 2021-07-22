@@ -26,6 +26,7 @@
 			<td>${ob.empTa}</td>
 			<td> 
 				<a href="delete?id=${ob.empId}">DELETE</a>  
+				<a href="edit?id=${ob.empId}">EDIT</a>  
 			</td>
 		</tr>
 	</c:forEach>
