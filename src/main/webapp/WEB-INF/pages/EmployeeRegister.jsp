@@ -17,18 +17,21 @@
             </div> 
             <!-- header end -->
             <div class="card-body">
-                <form action="save" method="POST">
+                <form id="myEmpForm" action="save" method="POST">
                     NAME : 
-                    <input type="text" name="empName" class="form-control" required/> 
+                    <input type="text" name="empName" id="empName" class="form-control"/>
+                    <div id="empNameError"></div> 
                     SALARY :
-                    <input type="number" name="empSal" class="form-control" min="0" required/> 
+                    <input type="number" name="empSal" id="empSal" class="form-control"/>
+                    <div id="empSalError"></div> 
                     DEPT :
-                    <select name="empDept" class="form-control">
+                    <select name="empDept" id="empDept" class="form-control">
                       <option value="">-SELECT-</option>
                       <option value="BA">BA</option>
                       <option value="DEV">DEV</option>
                       <option value="QA">QA</option>
                     </select>
+                    <div id="empDeptError"></div>
                     <input type="submit" value="Add" class="btn btn-success" />
                   </form>
             </div>
@@ -41,5 +44,79 @@
         <!-- card end -->
      
     </div>
+     <script type="text/javascript">
+      $(document).ready(function () {
+        $("#empNameError").hide();
+        $("#empSalError").hide();
+        $("#empDeptError").hide();
+
+        var empNameError = false;
+        var empSalError = false;
+        var empDeptError = false;
+
+        function validate_empName() {
+          var val = $("#empName").val();
+          if (val == "") {
+            $("#empNameError").show();
+            $("#empNameError").css("color", "red");
+            $("#empNameError").html("**Please Enter Employee Name");
+            empNameError = false;
+          } else {
+            $("#empNameError").hide();
+            empNameError = true;
+          }
+          return empNameError;
+        }
+
+        function validate_empSal() {
+          var val = $("#empSal").val();
+          if (val == "") {
+            $("#empSalError").show();
+            $("#empSalError").css("color", "red");
+            $("#empSalError").html("**Please Enter Employee Salary");
+            empSalError = false;
+          } else {
+            $("#empSalError").hide();
+            empSalError = true;
+          }
+          return empSalError;
+        }
+
+        function validate_empDept() {
+          var val = $("#empDept").val();
+          if (val == "") {
+            $("#empDeptError").show();
+            $("#empDeptError").css("color", "red");
+            $("#empDeptError").html("**Please Select Employee Department");
+            empDeptError = false;
+          } else {
+            $("#empDeptError").hide();
+            empDeptError = true;
+          }
+          return empDeptError;
+        }
+
+        $("#empName").keyup(function () {
+          $(this).val($(this).val().toUpperCase());
+          validate_empName();
+        });
+
+        $("#empSal").keyup(function () {
+          validate_empSal();
+        });
+        $("#empDept").change(function () {
+          validate_empDept();
+        });
+
+        $("#myEmpForm").submit(function () {
+          validate_empSal();
+          validate_empName();
+          validate_empDept();
+
+          if (empDeptError && empNameError && empSalError) return true;
+          else return false;
+        });
+      });
+    </script>
   </body>
 </html>
