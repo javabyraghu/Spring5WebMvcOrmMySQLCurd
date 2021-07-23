@@ -11,6 +11,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"></script>
   </head>
   <body>
+  <%@include file="menu.html"%>
     <div class="container">
       <div class="card">
         <div class="card-header bg-primary text-white text-center">

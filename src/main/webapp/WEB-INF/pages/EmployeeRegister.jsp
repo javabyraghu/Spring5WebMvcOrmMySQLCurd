@@ -9,6 +9,7 @@
     <title>EMPLOYEE REGISTER PAGE</title>
   </head>
   <body>
+  	<%@include file="menu.html"%>
     <div class="container">
         <div class="card">
             <div class="card-header bg-primary text-white text-center">
