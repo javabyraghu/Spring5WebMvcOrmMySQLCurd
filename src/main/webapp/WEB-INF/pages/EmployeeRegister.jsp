@@ -56,10 +56,16 @@
 
         function validate_empName() {
           var val = $("#empName").val();
+          var exp =/^[A-Z]{4,10}$/;
           if (val == "") {
             $("#empNameError").show();
             $("#empNameError").css("color", "red");
             $("#empNameError").html("**Please Enter Employee Name");
+            empNameError = false;
+          } else if (!exp.test(val)) {
+            $("#empNameError").show();
+            $("#empNameError").css("color", "red");
+            $("#empNameError").html("**Name must be 4-10 Chars only");
             empNameError = false;
           } else {
             $("#empNameError").hide();
