@@ -12,4 +12,5 @@ public interface IEmployeeDao {
    
    Employee getOneEmployee(Integer id);
    void updateEmployee(Employee emp);
+   long getEmpnameCount(String empName);
 }

@@ -12,4 +12,6 @@ public interface IEmployeeService {
 	
 	Employee getOneEmployee(Integer id);
 	void updateEmployee(Employee emp);
+	
+	long getEmpnameCount(String empName);
 }

@@ -37,4 +37,11 @@ public class EmployeeDaoImpl implements IEmployeeDao {
 	public void updateEmployee(Employee emp) {
 		ht.update(emp);
 	}
+	
+	public long getEmpnameCount(String empName) {
+		String hql = "SELECT COUNT(empName) FROM " + Employee.class.getName() +" WHERE empName=?0";
+		@SuppressWarnings({ "deprecation", "unchecked" })
+		List<Long> countList =  (List<Long>) ht.find(hql, empName);
+		return countList.get(0);
+	}
 }

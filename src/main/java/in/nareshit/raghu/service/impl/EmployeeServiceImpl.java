@@ -59,4 +59,9 @@ public class EmployeeServiceImpl implements IEmployeeService {
 		emp.setEmpTa(sal * 12/100.0);
 		dao.updateEmployee(emp);
 	}
+	
+	@Transactional(readOnly = true)
+	public long getEmpnameCount(String empName) {
+		return dao.getEmpnameCount(empName);
+	}
 }

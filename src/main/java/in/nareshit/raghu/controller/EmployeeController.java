@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import in.nareshit.raghu.model.Employee;
 import in.nareshit.raghu.service.IEmployeeService;
@@ -110,5 +111,18 @@ public class EmployeeController {
 		return "EmployeeMessage";
 	}
 
+	//7. AJAX validation
+	@GetMapping("/validate")
+	@ResponseBody
+	public String validateName(
+			@RequestParam("name") String empName
+			) 
+	{
+		String message = "";
+		if(service.getEmpnameCount(empName)>0) {
+			message = "Employee Name " + empName + " already exist!";
+		} 
+		return message; //return type is not page name
+	}
 
 }

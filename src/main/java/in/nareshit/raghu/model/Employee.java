@@ -18,7 +18,7 @@ public class Employee {
 	@Column(name="eid")
 	private Integer empId;
 	
-	@Column(name="ename")
+	@Column(name="ename",unique = true)
 	private String empName;
 	
 	@Column(name="esal")

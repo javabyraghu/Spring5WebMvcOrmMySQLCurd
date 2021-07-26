@@ -68,8 +68,21 @@
             $("#empNameError").html("**Name must be 4-10 Chars only");
             empNameError = false;
           } else {
-            $("#empNameError").hide();
-            empNameError = true;
+            $.ajax({
+               url : 'validate',
+               data : { 'name' : val},
+               success:function(resTxt) {
+               		if(resTxt!=''){
+               			$("#empNameError").show();
+            			$("#empNameError").css("color", "red");
+            			$("#empNameError").html(resTxt);
+            			empNameError = false;
+               		} else {
+               			 $("#empNameError").hide();
+            			  empNameError = true;
+               		} 
+               }
+            });
           }
           return empNameError;
         }
