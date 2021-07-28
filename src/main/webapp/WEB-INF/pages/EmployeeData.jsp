@@ -19,6 +19,7 @@
         </div>
         <!-- header end -->
         <div class="card-body">
+          <a href="excel" class="btn btn-success">EXCEL EXPORT</a>
           <table class="table table-hover">
             <tr class="bg-info text-white">
               <th>ID</th>

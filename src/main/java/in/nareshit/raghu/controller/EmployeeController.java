@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.ModelAndView;
 
 import in.nareshit.raghu.model.Employee;
 import in.nareshit.raghu.service.IEmployeeService;
@@ -125,4 +126,17 @@ public class EmployeeController {
 		return message; //return type is not page name
 	}
 
+	//8. Export data to excel
+	@GetMapping("/excel")
+	public ModelAndView showExcelData() {
+		ModelAndView m = new ModelAndView();
+		m.setViewName("empExcelView");
+		
+		List<Employee> list =  service.getAllEmployees();
+		m.addObject("list", list);
+		
+		return m;
+	}
+	
+	
 }
