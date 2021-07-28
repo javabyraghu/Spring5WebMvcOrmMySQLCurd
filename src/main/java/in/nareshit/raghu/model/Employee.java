@@ -18,13 +18,25 @@ public class Employee {
 	@Column(name="eid")
 	private Integer empId;
 	
-	@Column(name="ename",unique = true)
+	@Column(
+			name="ename",
+			nullable = false, //do not accept null values
+			unique = true, //do not accept duplicate values
+			length = 12
+			)
 	private String empName;
 	
-	@Column(name="esal")
+	@Column(
+			name="esal",
+			nullable = false
+			)
 	private Double empSal;
 	
-	@Column(name="edept")
+	@Column(
+			name="edept",
+			nullable = false,
+			length = 10
+			)
 	private String empDept;
 	
 	@Column(name="ehra")

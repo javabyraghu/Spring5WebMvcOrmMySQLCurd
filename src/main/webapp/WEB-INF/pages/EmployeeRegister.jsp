@@ -22,7 +22,7 @@
                     <input type="text" name="empName" id="empName" class="form-control"/>
                     <div id="empNameError"></div> 
                     SALARY :
-                    <input type="number" name="empSal" id="empSal" class="form-control"/>
+                    <input type="number" name="empSal" id="empSal" class="form-control" min="0" max="100"/>
                     <div id="empSalError"></div> 
                     DEPT :
                     <select name="empDept" id="empDept" class="form-control">
