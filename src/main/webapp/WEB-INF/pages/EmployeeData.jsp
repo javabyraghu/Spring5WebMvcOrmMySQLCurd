@@ -3,6 +3,7 @@
 <html>
   <head>
     <title>EMPLOYEE DATA PAGE</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" />
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
@@ -19,7 +20,8 @@
         </div>
         <!-- header end -->
         <div class="card-body">
-          <a href="excel" class="btn btn-success">EXCEL EXPORT</a>
+          <a href="excel" class="btn btn-success">EXCEL EXPORT <i class="fa fa-file-excel-o" aria-hidden="true"></i></a> |
+          <a href="pdf" class="btn btn-success">PDF EXPORT <i class="fa fa-file-pdf-o" aria-hidden="true"></i></a>
           <table class="table table-hover">
             <tr class="bg-info text-white">
               <th>ID</th>
@@ -40,9 +42,9 @@
                 <td>${ob.empTa}</td>
                 <td>
                   <a href="delete?id=${ob.empId}" class="btn btn-danger"
-                    >DELETE</a
+                    >DELETE <i class="fa fa-trash-o" aria-hidden="true"></i> </a
                   >
-                  <a href="edit?id=${ob.empId}" class="btn btn-warning">EDIT</a>
+                  <a href="edit?id=${ob.empId}" class="btn btn-warning">EDIT <i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
                 </td>
               </tr>
             </c:forEach>

@@ -5,6 +5,7 @@
         http://www.springframework.org/schema/beans/spring-beans.xsd
         ">
 	<bean id="empExcelView" class="in.nareshit.raghu.excel.EmployeeExcelView"/>
-        
+    
+    <bean id="empPdfView" class="in.nareshit.raghu.pdf.EmployeePdfView"></bean>
 </beans>
         

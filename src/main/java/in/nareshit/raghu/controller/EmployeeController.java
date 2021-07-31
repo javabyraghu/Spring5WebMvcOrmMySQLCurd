@@ -138,5 +138,17 @@ public class EmployeeController {
 		return m;
 	}
 	
+	//9. export data to PDF
+	@GetMapping("/pdf")
+	public ModelAndView showPdfData() {
+		ModelAndView m = new ModelAndView();
+		m.setViewName("empPdfView");
+
+		//fetch data from DB and send to Document
+		List<Employee> list =  service.getAllEmployees();
+		m.addObject("list", list);
+		
+		return m;
+	}
 	
 }
